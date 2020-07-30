@@ -1,0 +1,37 @@
+// ---- MIXIN for images --- //
+@mixin image ($top: null, $max-w: null) {
+    margin-top: $top;
+    max-width: $max-w;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @content;
+}
+
+// ---- MIXIN for centering --- //
+@mixin center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    @content;
+}
+
+// --- MIXIN for button hover states -- //
+@mixin hovers ($colour) {
+    background-color: lighten($colour, 20%);
+}
+
+// -- MIXIN media query --- //
+
+@mixin mq {
+    @media (min-width: $tablet) {
+        @content;
+    }
+}
+
+ // --- Functions --- //
+ 
+//  --- FUNCTION for flex-basis media query values. Used in 'for' loop --- //
+@function basis-increase($i) {
+	@return ($i * 8.33%);
+}

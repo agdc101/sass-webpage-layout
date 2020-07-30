@@ -1,0 +1,57 @@
+button {
+    margin-top: 15px;
+    width: 100%;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: ease-in-out 0.6s;
+    // --- Media Query mixin --- //
+    @include mq {      
+        padding: 10px 30px;      
+    }
+    // ------------------------- //
+    &.default {
+      background-color: #51ddfc; 
+      &:hover {
+        @include hovers(#51ddfc);
+      }    
+    }
+    &.error {
+      background-color: $error;
+      &:hover {
+        @include hovers($error);
+      } 
+    }
+    
+    &.info {
+      background-color: $info;
+      &:hover {
+        @include hovers($info);
+      } 
+    }
+    
+    &.success {
+      background-color: #63cc82;
+      &:hover {
+        @include hovers(#63cc82);
+      } 
+    }
+    
+    &.warning {
+      background-color: $warning;
+      &:hover {
+        @include hovers($warning);
+      } 
+    }
+    
+  }
+ 
+@include mq {
+  button + button {
+    margin-left: $margin;
+  }
+}
+  
+  

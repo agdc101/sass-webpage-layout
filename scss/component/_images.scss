@@ -1,0 +1,24 @@
+  .img-avatar {
+    @include image (10px, 100%) {
+      max-height: 100%;
+    } 
+}
+  
+  .img-frame {
+    @include image (10px, 100%) {
+      padding: 13px;
+      border: 1px solid #ccc;
+    } 
+}
+  
+  .img-logo {
+    @include image;
+  }
+
+// --- Class below purely used at 768px --- //
+  @include mq {
+    .logo {
+      margin-left: initial;
+      margin-right: initial;
+    }
+  }

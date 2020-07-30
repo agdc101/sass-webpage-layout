@@ -1,0 +1,59 @@
+.container {
+    padding: 0 10px;
+    // --- Media Query mixin --- //
+    @include mq {
+        @include center;
+        max-width: 1400px;           
+    }    
+}
+    
+.row {
+    display: flex;
+    flex-direction: column;
+    padding: 1em 10px;
+    // --- Media Query mixin --- //
+    @include mq {
+        flex-direction: row;         
+    }
+}
+    
+[class^=col] {
+    margin-top: $margin;
+    flex-basis: 100%;
+    min-height: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    // --- Media Query mixin --- //
+    @include mq {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        align-items: center;
+    }
+}
+.card {
+    flex-basis: 100%;
+}
+
+// --- 'each' loop giving each column its colour --- //
+@each $column, $colour in $col-colours {
+  .theme.#{$column} {
+      background-color: $colour;
+  }
+}
+// -------------------------------- //
+// ----- Classes below are purely used at 768px ---//
+@include mq {
+    .centered {
+        @include center;
+    }
+
+    [class^=col] + [class^=col] {
+        margin-left: $margin;
+    }
+    @for $i from 1 through 12 {
+        .col-#{$i} {
+            flex-basis: basis-increase($i);
+        }
+    }
+}
